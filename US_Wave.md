@@ -1,45 +1,40 @@
-# Wind Resource Data: Wind Integration National Dataset (WIND) Toolkit
+# High Resolution Ocean Surface Wave Hindcast
+
+## Description
+
+The development of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office to improve our understanding of the U.S. wave energy resource and to provide critical information for wave energy project development and wave energy converter (WEC) conceptual design. This is the highest resolution publicly available wave hindcast dataset. The multi-scale, unstructured-grid modeling approach using WaveWatch III and SWAN enabled long-term (decades) high-resolution hindcasts in a large regional domain. The model was extensively validated not only for the most common wave parameters, but also six IEC resource parameters and 2D spectra with high quality spectral data derived from publicly available buoys. The hindcast spans 32 years, has approximately 700,000 grid points, and a 200 m horizontal spatial resolution in shallow water. This creation of this dataset was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
 ## Model
 
-Wind resource data for North America was produced using the [Weather Research and Forecasting Model (WRF)](https://www.mmm.ucar.edu/weather-research-and-forecasting-model).
-The WRF model was initialized with the European Centre for Medium Range Weather
-Forecasts Interim Reanalysis (ERA-Interm) data set with an initial grid spacing
-of 54 km.  Three internal nested domains were used to refine the spatial
-resolution to 18, 6, and finally 2 km.  The WRF model was run for years 2007
-to 2014. While outputs were extracted from WRF at 5 minute time-steps, due to
-storage limitations instantaneous hourly time-step are provided for all
-variables while full 5 min resolution data is provided for wind speed and wind
-direction only.
+The dataset was generated from the unstructured-grid  SWAN model output that was driven by a WaveWatch III model with global-regional nested grids. The SWAN model simulations were performed with a spatial resolution as fine as 200 meters in shallow waters. The models were validated against 28 buoys distributed along the U.S. West Coast. Additional details on detailed definitions of the variables found in the dataset, the SWAN and WaveWatch III model configuration and model validation are available in a peer-review publication [Development and validation of a high-resolution regional wave hindcast model for U.S. West Coast wave resource characterization](https://www.osti.gov/biblio/1599105) and a PNNL technical report: [High-Resolution Regional Wave Hindcast for the U.S. West Coast](https://www.osti.gov/biblio/1573061/). This study was funded by the U.S. Department of Energy, Office of Energy Efficiency & Renewable Energy, Water Power Technologies Office under Contract DE-AC05-76RL01830 to Pacific Northwest National Laboratory (PNNL).
 
-The following variables were extracted from the WRF model data:
-- Wind Speed at 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Wind Direction at 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Temperature at 2, 10, 40, 60, 80, 100, 120, 140, 160, 200 m
-- Pressure at 0, 100, 200 m
-- Surface Precipitation Rate
-- Surface Relative Humidity
-- Inverse Monin Obukhov Length
+The following variables were extracted from the SWAN model data:
+ - Dir: Direction Normal to the Wave Crests
+ - Hsig: Calculated as the zeroth spectral moment (i.e., H_m0)
+ - Period: Resolved Spectral Moment (m_0/m_1)
+ - RTpeak: The period associated with the maximum value of the wave energy spectrum
+ - Tm02: Total wave energy flux from all directions
+ - Tm_10: Spectral width characterizes the relative spreading of energy in the wave spectrum. 
+ - d: Fraction of total wave energy travelling in the direction of maximum wave power direction
+ - djdmax: The direction from which the most wave energy is travelling
+ - owp: Total wave energy flux from all directions
+ - sw: Spectral width characterizes the relative spreading of energy in the wave spectrum.
 
 ## Domains
 
-The wind resource was produce using three distinct WRF domains shown below. The
-CONUS domain for 2007-2013 was run by 3Tier while 2014 as well as all years of
-the Canada and Mexico domains were run under NARIS. The data is provided in
-three sets of files:
+The dataset currently covers the U.S. Exclusive Economic Zone (‘EEZ’, up to 200 nautical miles from shore) offshore of the West Coast, and includes shallow nearshore regions not covered by previous model hindcasts. Future additions to the dataset will extend the coverage to the entire U.S. EEZ, including Island territories. The dataset has a 3-hour timestep spanning 32 years from 1979 through 2010.  
 
-- CONUS: Extracted exclusively from the CONUS domain
-- Canada: Combined data from the Canada and CONUS domains
-- Mexico: Combined data from the Mexico and CONUS domains
+- U.S. West Coast EEZ: Available
+- U.S. East Coast: Available Soon
+- Alaskan Coast: Available Soon
 
 ## References
 
-For more information about the WIND Toolkit please see the [website.](https://www.nrel.gov/grid/wind-toolkit.html)
-Users of the WIND Toolkit should use the following citations:
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. Overview and Meteorological Validation of the Wind Integration National Dataset Toolkit (Technical Report, NREL/TP-5000-61740). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/61740.pdf)
-- [Draxl, C., B.M. Hodge, A. Clifton, and J. McCaa. 2015. "The Wind Integration National Dataset (WIND) Toolkit." Applied Energy 151: 355366.](https://www.sciencedirect.com/science/article/pii/S0306261915004237?via%3Dihub)
-- [Lieberman-Cribbin, W., C. Draxl, and A. Clifton. 2014. Guide to Using the WIND Toolkit Validation Code (Technical Report, NREL/TP-5000-62595). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy15osti/62595.pdf)
-- [King, J., A. Clifton, and B.M. Hodge. 2014. Validation of Power Output for the WIND Toolkit (Technical Report, NREL/TP-5D00-61714). Golden, CO: National Renewable Energy Laboratory.](https://www.nrel.gov/docs/fy14osti/61714.pdf)
+Users of the High Resolution Ocean Surface Wave Hindcast should use the following citations:
+
+- [Yang, Zhaoqing, et al. High-Resolution Regional Wave Hindcast for the US West Coast. No. PNNL-28107. Pacific Northwest National Lab.(PNNL), Richland, WA (United States), 2018.](https://www.osti.gov/biblio/1599105)
+- [Wu, Wei-Cheng, et al. "Development and validation of a high-resolution regional wave hindcast model for US West Coast wave resource characterization." Renewable Energy 152 (2020): 736-753.](https://www.osti.gov/biblio/1573061/)
+
 
 ## Directory structure
 
